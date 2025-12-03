@@ -1,3 +1,0 @@
-builtin_interfaces/Time stamp
-int32 left_ticks
-int32 right_ticks
