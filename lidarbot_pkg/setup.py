@@ -2,7 +2,7 @@ import os
 from glob import glob
 from setuptools import find_packages, setup
 
-package_name = 'diffrobot_pkg'
+package_name = 'lidarbot_pkg'
 
 setup(
     name=package_name,
