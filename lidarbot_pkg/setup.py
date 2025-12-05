@@ -18,7 +18,7 @@ setup(
     zip_safe=True,
     maintainer='Nectar A. Gonzalez Negron',
     maintainer_email='nectargonzalez@outlook.com',
-    description='Differential drive robot simulation ROS2 ',
+    description='Autonomous lidar robot program for the NRC 2026',
     license='Apache-2.0',
     tests_require=['pytest'],
     entry_points={
