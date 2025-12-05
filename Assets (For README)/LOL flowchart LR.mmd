@@ -1,0 +1,74 @@
+flowchart LR
+    KinematicsNode["_Kinematics Node_
+    Processes encoder ticks,
+    Calculates robot position
+    Output: Robot Position\
+    "]
+
+    LidarNode["_Lidar Node_
+    Lidar data collection
+    Lidar data processing
+    Output: Point Clouds
+   "]
+
+    EncoderNode["_Encoder Node_
+    Encoder data collection
+    Encoder data processing (if required)
+    Output: Encoder Ticks
+   "]
+
+
+    NavigationNode["`_Navigation Node_
+    Recieves the robots trayectory, determines what the motors will do.
+    --
+    Sets the robot's path/tra
+    Decision making based on Point Clouds 
+    and robots position
+    Decision maker
+    Decision making based on Point Clouds 
+    and robots position
+    ~Navigation node probably controls motors, so the rest of montecarlo is in here
+    ~Check if motor node is needed.
+    `"]
+
+    LocalizationNode["`_Localization Node_
+    Decision making based on Point Clouds 
+    and robots position.
+    ~Assumtion of where it could be (not yet tested, since montecarlo)
+    `"]
+
+    MotorNode["_Motor Node_
+    Recieves momement commands from Navigation Node,
+    dfdfdfd
+    "]
+
+
+
+    EncoderNode -->|"*/WheelTicks (Topic)* 
+     builtin_interfaces/Time stamp
+     int32 left_ticks
+     int32 right_ticks "| LocalizationNode
+    
+    LidarNode -->|"*/PointCloud (Topic)* 
+     builtin_interfaces/Time stamp
+     sxdsd
+     sdsd
+      "| LocalizationNode
+
+    LocalizationNode -->|"*/Topic (Topic)* 
+     dfdf "| NavigationNode
+
+    NavigationNode -->|"*/Topic (Topic)*
+    dfdf "| KinematicsNode
+
+    KinematicsNode -->|"*/Topic (Topic)* 
+     dfdf "| MotorNode    
+
+
+
+    
+
+    
+
+
+
