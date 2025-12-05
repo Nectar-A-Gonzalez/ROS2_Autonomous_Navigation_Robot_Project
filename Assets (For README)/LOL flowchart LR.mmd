@@ -1,10 +1,4 @@
 flowchart LR
-    KinematicsNode["_Kinematics Node_
-    Processes encoder ticks,
-    Calculates robot position
-    Output: Robot Position\
-    "]
-
     LidarNode["_Lidar Node_
     Lidar data collection
     Lidar data processing
@@ -59,10 +53,7 @@ flowchart LR
      dfdf "| NavigationNode
 
     NavigationNode -->|"*/Topic (Topic)*
-    dfdf "| KinematicsNode
-
-    KinematicsNode -->|"*/Topic (Topic)* 
-     dfdf "| MotorNode    
+    dfdf "| MotorNode
 
 
 
