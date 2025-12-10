@@ -196,8 +196,5 @@ C:\Users\necam\OneDrive\1 Projects\ROS2-DifferentialRobot_Repository_Project\Ass
 =======
 
 >>>>>>> cb4e8465d31402872d1b092f3b150b353e2822e4
-----
-# NOTES:
-- Pose is in 3d (x,y, theta) with orientation
-- Position just gives a coordinate, not orientation
-- Motor needs to move inside navegation node, since navigation mode has montecarlos that gets recalculated after a movement happens. Might be more straight fowardc to just make the motors move inside the Navigation instead of a seperate node.
+# Pose is in 3d (x,y, theta) with orientation
+# Position just gives a coordinate, not orientation
