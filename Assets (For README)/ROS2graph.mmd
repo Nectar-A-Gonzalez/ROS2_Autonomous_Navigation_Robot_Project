@@ -2,46 +2,37 @@ flowchart LR
     LidarNode["_Lidar Node_
     Lidar data collection
     Lidar data processing
-    Output: Point Clouds
+    OUTPUT: Point Clouds
    "]
 
     EncoderNode["_Encoder Node_
     Encoder data collection
     Encoder data processing (if required)
-    Output: Encoder Ticks
+    OUTPUT: Encoder Ticks
    "]
 
     LocalizationNode["`_Localization Node_
-    (Recieves point cloud, 
-    ?Recieves encoder ticks to know how much it should have moved???
+    RECIEVES: point cloud, 
+    RECIEVES: encoder ticks to calculate position (odometry)
     Montecarlo Localization: Compares recorded map to lidar sensor readings.  
-    -------------
-    i dont think it makes any decision
-    Decision making based on Point Clouds 
-    and robots position.
-    ~Assumtion of where it could be (not yet tested, since montecarlo)
+  ----------------------
+    Compares lidar map data to recorded map, runs lowlevel Carman filter with calculated odometry position 
+    position input, with calculated odometry position and recorded map
+    OUTPUT: ojoioioio
     `"]
 
-
     NavigationNode["`_Navigation Node_
-    Recieves the robots trayectory, determines what the motors will do.
-    Reevaluates trajectory based on sensor input gained with movement.
+    Makes the robots trayectory, determines what the motors will do, since it now knows where it is.
+    Also reevaluates trajectory based on sensor input gained with movement, to reduce posible positions in Montecarlo.
     Montecarlo Navigation:
-    dOES IT AT SOMEPOINT FOR SURE KNOW HWERE IT IS??
-    -----------
-    Sets the robot's path/tra
-    Decision making based on Point Clouds 
-    and robots position
-    Decision maker
-    Decision making based on Point Clouds 
-    and robots position
-    ~Navigation node probably controls motors, so the rest of montecarlo is in here
-    ~Check if motor node is needed.
+
+    OUTPUT: DFDFDF
+
     `"]
 
     MotorNode["_Motor Node_
     Recieves momement commands from Navigation Node,
-    dfdfdfd
+    
     "]
 
 
@@ -53,12 +44,17 @@ flowchart LR
     
     LidarNode -->|"*/PointCloud (Topic)* 
      builtin_interfaces/Time stamp
-     sxdsd
-     sdsd
+     ndarray x_points
+     ndarray y_points
+     ndarray z_points
       "| LocalizationNode
 
-    LocalizationNode -->|"*/Topic (Topic)* 
-     dfdf "| NavigationNode
+    LocalizationNode -->|"*/Pose2DStamped (Topic)* 
+     builtin_interfaces/Time stamp
+     float32 x
+     float32 y
+     float32 theta"| NavigationNode
+      
 
     NavigationNode -->|"*/Topic (Topic)*
     dfdf "| MotorNode
