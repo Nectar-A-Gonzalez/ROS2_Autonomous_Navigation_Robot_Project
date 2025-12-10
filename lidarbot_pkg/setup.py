@@ -30,6 +30,7 @@ setup(
             'localization_node = lidarbot_pkg.localization_node:main',
             'navigation_node = lidarbot_pkg.navigation_node:main',
             'reset_client = diffrobot_pkg.reset_client:main',
+            'kinematics_node = lidarbot_pkg.kinematics_node:main',
         ],
     },
 )
