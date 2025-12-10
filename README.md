@@ -198,3 +198,4 @@ C:\Users\necam\OneDrive\1 Projects\ROS2-DifferentialRobot_Repository_Project\Ass
 >>>>>>> cb4e8465d31402872d1b092f3b150b353e2822e4
 # Pose is in 3d (x,y, theta) with orientation
 # Position just gives a coordinate, not orientation
+- Have kinematics node that goes into navigation node, that is better to have it calculate as a topic probably.
