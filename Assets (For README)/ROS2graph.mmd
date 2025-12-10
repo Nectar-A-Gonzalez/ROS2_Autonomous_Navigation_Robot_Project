@@ -18,20 +18,24 @@ flowchart LR
   ----------------------
     Compares lidar map data to recorded map, runs lowlevel Carman filter with calculated odometry position 
     position input, with calculated odometry position and recorded map
-    OUTPUT: Robot's actual current pose
+    OUTPUT: ojoioioio
     `"]
 
     NavigationNode["`_Navigation Node_
     Makes the robots trayectory, determines what the motors will do, since it now knows where it is.
     Also reevaluates trajectory based on sensor input gained with movement, to reduce posible positions in Montecarlo.
     Montecarlo Navigation:
+
     OUTPUT: DFDFDF
+
     `"]
 
     MotorNode["_Motor Node_
     Recieves momement commands from Navigation Node,
     
     "]
+
+
 
     EncoderNode -->|"*/WheelTicks (Topic)* 
      builtin_interfaces/Time stamp
@@ -51,6 +55,7 @@ flowchart LR
      float32 y
      float32 theta"| NavigationNode
       
+
     NavigationNode -->|"*/Topic (Topic)*
     dfdf "| MotorNode
 
