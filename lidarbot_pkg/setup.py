@@ -23,13 +23,10 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [ 
-            'kinematics_node = diffrobot_pkg.kinematics_node:main',
-
             'encoder_node = lidarbot_pkg.encoder_node:main',
             'lidar_node = lidarbot_pkg.lidar_node:main',
             'localization_node = lidarbot_pkg.localization_node:main',
             'navigation_node = lidarbot_pkg.navigation_node:main',
-            'reset_client = diffrobot_pkg.reset_client:main',
         ],
     },
 )
