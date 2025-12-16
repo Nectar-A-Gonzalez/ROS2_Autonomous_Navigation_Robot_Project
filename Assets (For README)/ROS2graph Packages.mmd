@@ -1,0 +1,79 @@
+flowchart LR
+    LidarNode["_Lidar Node_
+    Lidar data collection
+    Lidar data processing
+    OUTPUT: Point Clouds
+    [rplidar package]
+   "]
+
+    EncoderNode["_Encoder Node_
+    Encoder data collection
+    Encoder data processing (if required)
+    OUTPUT: Encoder Ticks
+   "]
+
+    LocalizationNode["`_Localization Node_
+    RECIEVES: point cloud, 
+    RECIEVES: odometry (or ticks?)
+    Montecarlo Localization: Compares recorded map to lidar sensor readings.  
+  ----------------------
+    Compares lidar map data to recorded map, runs lowlevel Kalman filter with calculated odometry position 
+    position input, with calculated odometry position and recorded map
+    OUTPUT: ojoioioio
+    `"]
+
+    NavigationNode["`_Navigation Node_
+    Makes the robots trayectory, determines what the motors will do, since it now knows where it is.
+    Also reevaluates trajectory based on sensor input gained with movement, to reduce posible positions in Montecarlo.
+    Montecarlo Navigation:
+
+    OUTPUT: DFDFDF
+    `"]
+
+    MotorNode["_Motor Node_
+    Recieves momement commands from Navigation Node,
+    "]
+
+    KinematicsNode["_Kinematics Node_
+    [diffrobot_pkg]
+    "]
+
+    SLAMNode["_SLAM Node_
+    [slamtoolbox package]
+    Runs once
+    "]
+
+
+    EncoderNode -->|"*/WheelTicks (Topic)* 
+     builtin_interfaces/Time stamp
+     int32 left_ticks
+     int32 right_ticks "| LocalizationNode
+    
+    LidarNode -->|"*/PointCloud (Topic)* 
+     builtin_interfaces/Time stamp
+     ndarray x_points
+     ndarray y_points
+     ndarray z_points
+      "| LocalizationNode
+
+    LocalizationNode -->|"*/Pose2DStamped (Topic)* 
+     builtin_interfaces/Time stamp
+     float32 x
+     float32 y
+     float32 theta"| NavigationNode
+      
+
+    NavigationNode -->|"*/Topic (Topic)*
+    dfdf "| MotorNode
+
+    KinematicsNode -->|
+     | LocalizationNode
+
+
+
+    
+
+    
+
+
+
