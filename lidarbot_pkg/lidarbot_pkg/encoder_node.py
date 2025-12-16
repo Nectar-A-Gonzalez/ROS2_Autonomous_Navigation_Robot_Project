@@ -10,7 +10,7 @@ from rclpy.node import Node
 from builtin_interfaces.msg import Time #Msg template need to import from ROS2
 import numpy as np
 from geometry_msgs.msg import Twist #base ros2 installation
-from diffrobot_interfaces.msg import WheelTicks #custom msg from pkg
+from lidarbot_interfaces.msg import WheelTicks #custom msg from pkg
 from .robot_parameters import wheel_radius, wheel_axel_width, encoder_resolution, t #Robot's configuration
 
 # SIMUL INPUT
